@@ -1,0 +1,144 @@
+/* 1. Bulletproof Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(30, 54%, 90%);
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2.5rem 1.25rem; /* Outer border spacing for desktop viewports */
+}
+
+/* 2. Seamless Fluid Card Layout */
+.envelope {
+  background-color: hsl(0, 0%, 100%);
+  padding: 2.5rem;
+  border-radius: 24px;
+  max-width: 736px;
+  width: 100%; /* Forces the wrapper card to scale smoothly down to tiny screens */
+}
+
+/* 3. Fully Responsive Image */
+.omlet {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  display: block;
+}
+
+/* 4. Fluid Responsive Typography */
+.simple {
+  font-size: clamp(2rem, 5vw, 2.5rem); /* Dynamically shrinks font size perfectly on mobile views */
+  font-weight: 700;
+  color: hsl(30, 10%, 15%);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.text-below-simple, .nutrition-intro {
+  color: hsl(30, 10%, 34%);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* 5. Sub-containers and list spacing */
+.recipe-container {
+  background-color: hsl(330, 100%, 98%);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.preparation-title {
+  color: hsl(332, 51%, 32%);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.rose-list, .brown-list {
+  padding-left: 1.25rem;
+}
+
+.rose-list li, .brown-list li {
+  margin-bottom: 0.75rem;
+  color: hsl(30, 10%, 34%);
+  padding-left: 0.5rem;
+  line-height: 1.5;
+}
+
+.rose-list li::marker { color: hsl(332, 51%, 32%); }
+.brown-list li::marker { color: hsl(14, 45%, 36%); }
+
+.ingredient-container {
+  color: hsl(14, 45%, 36%);
+  font-size: 1.75rem;
+  margin: 2rem 0 1rem 0;
+}
+
+/* 6. Clean Grid Lines */
+.horizontal-line {
+  border: 0;
+  border-top: 1px solid hsl(30, 18%, 90%);
+  margin: 1.5rem 0;
+}
+
+/* 7. Nutrition Alignment Fix */
+.nutrition-table {
+  padding: 0 0.5rem;
+}
+
+.cof {
+  color: hsl(30, 10%, 34%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.amount {
+  color: hsl(14, 45%, 36%);
+  font-weight: bold;
+}
+
+.attribution {
+  margin-top: 3rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: hsl(30, 10%, 45%);
+  line-height: 1.5;
+}
+
+.attribution a {
+  color: hsl(14, 45%, 36%);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* 8. Extreme Tiny Device Control (e.g. iPhone XR / SE Seamless integration) */
+@media screen and (max-width: 500px) {
+  body {
+    padding: 0; /* Bleeds container seamlessly to screen edge on narrow viewports */
+  }
+  
+  .envelope {
+    border-radius: 0; /* Standard mobile design execution for full bleed app look */
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .omlet {
+    border-radius: 0;
+    margin: -1.5rem -1.25rem 2rem -1.25rem; /* Scales the photo flush against the phone edge */
+    width: calc(100% + 2.5rem);
+    max-height: 240px;
+  }
+}
